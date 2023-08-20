@@ -25,12 +25,27 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    ll n, k;
-    cin >> n >> k;
-    ll c = (n / k);
-    if (c % 2 == 1)
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int x, y;
+        cin >> x >> y;
+        map<char, int> mp;
+        string s;
+        cin >> s;
+        for (auto x : s)
+        {
+            mp[x]++;
+        }
+        if (((x >= 0 && mp['R'] >= x) || (x < 0 && mp['L'] >= -x)) && ((y >= 0 && mp['U'] >= y) || (y < 0 && mp['D'] >= -y)))
+        {
+            cout << "YES\n";
+        }
+        else
+        {
+            cout << "NO\n";
+        }
+    }
     return 0;
 }
